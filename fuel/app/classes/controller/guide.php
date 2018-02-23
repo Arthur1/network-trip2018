@@ -1,6 +1,12 @@
 <?php
 class Controller_Guide extends Controller_Template
 {
+	public function before()
+	{
+		parent::before();
+		Authplus::check_and_redirect([1]);
+	}
+
 	public function action_items()
 	{
 		$this->template->title = '持ち物';
@@ -12,12 +18,6 @@ class Controller_Guide extends Controller_Template
 		Asset::js(['schedule.js'], [], 'add_js');
 		$this->template->title = 'スケジュール';
 		$this->template->contents = View::forge('guide/schedule');
-	}
-
-	public function action_stay()
-	{
-		$this->template->title = '宿泊先';
-		$this->template->contents = View::forge('guide/stay');
 	}
 
 	public function action_contact()

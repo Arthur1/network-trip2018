@@ -8,6 +8,13 @@
 	<?= Asset::render('add_css'); ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2196f3">
+	<meta name="msapplication-TileColor" content="#2196f3">
+	<meta name="theme-color" content="#2196f3">
 </head>
 <body>
 <header class="navbar-fixed">
@@ -27,20 +34,21 @@
 						<a href="/mypage"><span class="white-text email">Arthur</span></a>
   					</div>
 				</li>
-				<li><?= Html::anchor('guide/items', '<i class="material-icons">star_rate</i>持ち物'); ?></li>
-				<li><?= Html::anchor('guide/schedule', '<i class="material-icons">star_rate</i>スケジュール'); ?></li>
-				<li><?= Html::anchor('guide/stay', '<i class="material-icons">star_rate</i>宿泊先'); ?></li>
-				<li><?= Html::anchor('guide/contact', '<i class="material-icons">star_rate</i>連絡先'); ?></li>
-				<li><?= Html::anchor('gallery', '<i class="material-icons">star_rate</i>写真'); ?></li>
+				<li><?= Html::anchor('guide/items', '<i class="material-icons">card_travel</i>持ち物'); ?></li>
+				<li><?= Html::anchor('guide/schedule', '<i class="material-icons">schedule</i>スケジュール'); ?></li>
+				<li><?= Html::anchor('guide/contact', '<i class="material-icons">perm_phone_msg
+</i>連絡先'); ?></li>
+				<li><?= Html::anchor('gallery', '<i class="material-icons">photo_library</i>アルバム'); ?></li>
+				<li><?= Html::anchor('notification', '<i class="material-icons">notifications</i>通知'); ?></li>
 				<li class="divider"></li>
 				<li><?= Html::anchor('logout', 'ログアウト'); ?></li>
 			</ul>
 			<ul class="right hide-on-med-and-down">
 				<li><?= Html::anchor('guide/items', '持ち物'); ?></li>
 				<li><?= Html::anchor('guide/schedule', 'スケジュール'); ?></li>
-				<li><?= Html::anchor('guide/stay', '宿泊先'); ?></li>
 				<li><?= Html::anchor('guide/contact', '連絡先'); ?></li>
-				<li><?= Html::anchor('gallery', '写真'); ?></li>
+				<li><?= Html::anchor('gallery', 'アルバム'); ?></li>
+				<li><?= Html::anchor('notification', '通知'); ?></li>
 				<li class="divider"></li>
 				<li><?= Html::anchor('logout', 'ログアウト'); ?></li>
 			</ul>
