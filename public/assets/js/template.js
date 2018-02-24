@@ -37,7 +37,7 @@ function register_subscription(subscription) {
 
 const server_key = urlB64ToUint8Array('BBo1HQ-3J_fds91Aot__hNW_Om1qbAXZiKXPixqUTI06mqIsNviisLFeLEYfWxHGZz7QQPCCSglALTzgNLCUCC4');
 
-navigator.serviceWorker.register('serviceWorker.js').then(function (registration) {
+navigator.serviceWorker.register('/serviceWorker.js').then(function (registration) {
 	registration.pushManager.getSubscription().then(function (subscription) {
 		if (subscription) {
 			register_subscription(subscription);
