@@ -36,9 +36,7 @@ desktop.ini
 
 # Upload Files
 /public/assets/img/upload/*
-!/public/assets/img/upload/.gitkeep
 /public/assets/img/upload/*/*
-!/public/assets/img/upload/*/.gitkeep
 
 # Security
 /fuel/app/config/*/db.php

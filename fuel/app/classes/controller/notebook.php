@@ -139,4 +139,53 @@ class Controller_Notebook extends Controller_Template
 		Session::set_flash('message', 'ノートの編集に成功しました！');
 		Response::redirect('notebook');
 	}
+
+	public function get_delete($id)
+	{
+		$this->template->title = 'ノート削除';
+		$this->template->contents = View::forge('notebook/delete');
+		$query = DB::select()
+					->from('notebook')
+					->where('id', '=', $id);
+		try
+		{
+			$data = $query->execute();
+		}
+		catch (DatabaseException $e)
+		{
+			throw new HttpNotFoundExcption;
+		}
+		if ($data === [])
+		{
+			throw new HttpNotFoundException;
+		}
+		$this->template->contents->data = $data[0];
+	}
+
+	public function post_delete($id)
+	{
+		$this->template->title = 'ノート削除';
+		$this->template->contents = View::forge('notebook/delete');
+		if (! Security::check_token())
+		{
+			$this->template->contents->error = 'お手数ですが、再度送信してください。';
+			return;
+		}
+		if (Input::post('return'))
+		{
+			Response::redirect('notebook');
+		}
+		$query = DB::delete('notebook')
+					->where('id', '=', $id);
+		try
+		{
+			$query->execute();
+		}
+		catch (DatabaseException $e)
+		{
+			$this->template->contents->error = 'データベースエラー';
+		}
+		Session::set_flash('message', 'ノートを削除しました！');
+		Response::redirect('notebook');
+	}
 }

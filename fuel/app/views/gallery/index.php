@@ -1,6 +1,16 @@
-<div class="carousel carousel-slider">
-    <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/800/400/food/1"></a>
-    <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/800/400/food/2"></a>
-    <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/800/400/food/3"></a>
-    <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/800/400/food/4"></a>
+<h1 class="blue-text">アルバム</h1>
+<div class="row">
+	<div class="col s12">
+		<div class="carousel carousel-slider">
+			<?php foreach ($data as $record): ?>
+			<div class="carousel-item">
+				<?= Asset::img('upload/gallery/'.$record['image'], ['alt' => 'image']);?>
+			</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+	<div class="col s12 input-field">
+		<?= Html::anchor('gallery/upload', '<i class="material-icons left">backup</i>アップロード', ['class' => 'teal btn']); ?>
+	</div>
 </div>
+<div id="message" class="hide"><?= Session::get_flash('message'); ?></div>

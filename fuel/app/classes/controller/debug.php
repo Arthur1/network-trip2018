@@ -1,6 +1,12 @@
 <?php
 class Controller_Debug extends Controller_Template
 {
+	public function before()
+	{
+		parent::before();
+		Authplus::check_and_redirect([1]);
+	}
+
 	public function action_index()
 	{
 		$this->template->title = 'テスト';
