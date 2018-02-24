@@ -1,6 +1,12 @@
 <?php
 class Controller_Notebook extends Controller_Template
 {
+	public function before()
+	{
+		parent::before();
+		Authplus::check_and_redirect([1]);
+	}
+
 	public function action_index()
 	{
 		$this->template->title = 'ノート';
@@ -132,11 +138,5 @@ class Controller_Notebook extends Controller_Template
 		}
 		Session::set_flash('message', 'ノートの編集に成功しました！');
 		Response::redirect('notebook');
-	}
-
-	public function get_delete($id)
-	{
-		$this->template->title = 'ノート削除';
-		$this->template->contents = View::forge('notebook/delete');
 	}
 }
