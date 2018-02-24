@@ -24,5 +24,17 @@ class Controller_Guide extends Controller_Template
 	{
 		$this->template->title = '連絡先';
 		$this->template->contents = View::forge('guide/contact');
+		$query = DB::select()
+					->from('contact')
+					->order_by('id', 'asc');
+		try
+		{
+			$data = $query->execute()->as_array();
+		}
+		catch (DatabaseException $e)
+		{
+			$data = [];
+		}
+		$this->template->contents->data = $data;
 	}
 }
