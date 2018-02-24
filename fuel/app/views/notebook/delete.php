@@ -6,7 +6,7 @@ if (isset($error)) {
 }
 ?>
 <p>
-	ノート「<?= $data['title']; ?>」を削除します。
+	ノート「<?= isset($data['title']) ? $data['title'] : ''; ?>」を削除します。
 </p>
 <?= Form::open(); ?>
 <div class="row">
