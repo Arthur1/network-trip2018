@@ -76,10 +76,10 @@
 		</div>
 	</div>
 </footer>
-<!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <?= Asset::js('materialize.min.js'); ?>
 <?= Asset::js('footerFixed.js'); ?>
+<?= Asset::js('template.js'); ?>
 <script type="text/javascript">
 $(document).ready(function() {
 	$(".button-collapse").sideNav();
